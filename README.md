@@ -6,7 +6,7 @@ This project uses Node.js with Typescript and a MongoDB database
 
 ### Environment variables
 
-- MONGO_URI: development, test or production. Defaults to development
+- MONGO_URI: connection string to the database
 - API_KEY: the secret key to be included as `x-api-key` Header
 - PORT: defaults to 3000
 
