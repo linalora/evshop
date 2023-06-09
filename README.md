@@ -60,6 +60,7 @@ curl --location --request GET 'localhost:49160/api/burrito/b1' \
 - Create order:
 
 You need to set the `burrito_variant_id` with the desired `_id` value from the burrito's `variants` array
+![image](https://github.com/linalora/evshop/assets/2327871/ea3f89c8-d092-4e4e-90eb-e213367f4eac)
 
 ```
 curl --location --request POST 'localhost:49160/api/order/' \
