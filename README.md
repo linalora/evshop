@@ -20,8 +20,7 @@ The following endpoints should return a JSON response:
 
 # Commands
 
-Run `npm install` to install the project dependencies
-Run `npm test` start
+Run `npm install` to install the project dependencies.
 
 Start the app in dev mode with hot reloading
 
@@ -42,6 +41,8 @@ npm run test
 ```
 
 # Curl commands
+
+You can replace the local host and port with the live url `burritobackend-linalora.b4a.run`
 
 - Get burrito list:
 

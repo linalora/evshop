@@ -7,15 +7,17 @@ export async function createOrder(items: Array<IOrderItemInput>) {
   if (!items.length) {
     throw new Error("Please provide the order items");
   }
+
   const itemsVariantInfo: BurritoOrderInfo[] = await Promise.all(
     items?.map(async (item) => findBurritoItem(item.burrito_variant_id))
   );
+
   const orderItems: IOrderItem[] = items.map((item) => {
     const variant = itemsVariantInfo.find(
       (v) => v._id == item.burrito_variant_id
     ) as BurritoOrderInfo;
     return {
-      quantity: item.quantity as number,
+      quantity: item.quantity > 0 ? item.quantity : 1,
       unit_price: variant.price as number,
       description: `${variant.name} - ${variant.size}`,
       variant_id: item.burrito_variant_id,

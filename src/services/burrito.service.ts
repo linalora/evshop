@@ -28,18 +28,19 @@ export async function findBurritoItem(
   burrito_variant_id: string
 ): Promise<BurritoOrderInfo> {
   return new Promise(async (resolve, reject) => {
+    if (!burrito_variant_id) {
+      reject("Provide a burrito variant id");
+    }
     const burrito = (await Burrito.findOne({
       "variants._id": burrito_variant_id,
     })) as IBurrito;
     if (!burrito) {
-      reject("Not found");
+      return reject(`Not found ${burrito_variant_id}`);
     }
     const item = burrito?.variants.find(
       (variant) => variant._id == burrito_variant_id
     ) as IBurritoVariant;
-    if (!item) {
-      reject("Not found");
-    }
+
     resolve({
       _id: item._id,
       size: item.size,
