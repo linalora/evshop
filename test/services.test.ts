@@ -6,7 +6,6 @@ import { IOrderItemInput } from "../src/models/order";
 import {
   createBurrito,
   deleteAllBurritos,
-  findBurritoById,
   findBurritoItem,
   findBurritos,
 } from "../src/services/burrito.service";

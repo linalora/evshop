@@ -40,3 +40,49 @@ Run the unit tests
 ```
 npm run test
 ```
+
+# Curl commands
+
+- Get burrito list:
+
+```
+curl --location --request GET 'localhost:49160/api/burrito/' \
+--header 'x-api-key: secret-shop23.'
+```
+
+- Get burrito by id:
+
+```
+curl --location --request GET 'localhost:49160/api/burrito/b1' \
+--header 'x-api-key: secret-shop23.'
+```
+
+- Create order:
+
+You need to set the `burrito_variant_id` with the desired `_id` value from the burrito's `variants` array
+
+```
+curl --location --request POST 'localhost:49160/api/order/' \
+--header 'x-api-key: secret-shop23.' \
+--data-raw '[
+    { "burrito_variant_id": "b2_002", "quantity": 1 },
+    { "burrito_variant_id": "b1_004", "quantity": 2 }
+]
+'
+```
+
+- Get order list:
+
+```
+curl --location --request GET 'localhost:49160/api/order/' \
+--header 'x-api-key: secret-shop23.' \
+--data-raw ''
+```
+
+- Get order by id:
+
+```
+curl --location --request GET 'localhost:49160/api/order/9df620d4-0c0d-4b54-abe7-82a97c0cacc6' \
+--header 'x-api-key: secret-shop23.' \
+--data-raw ''
+```

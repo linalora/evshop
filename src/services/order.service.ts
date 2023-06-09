@@ -1,6 +1,6 @@
 import { v4 as uuidV4 } from "uuid";
 import { BurritoOrderInfo } from "../models/burrito";
-import { Order, IOrder, IOrderItemInput, IOrderItem } from "../models/order";
+import { Order, IOrderItemInput, IOrderItem } from "../models/order";
 import { findBurritoItem } from "./burrito.service";
 
 export async function createOrder(items: Array<IOrderItemInput>) {

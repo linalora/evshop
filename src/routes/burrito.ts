@@ -18,16 +18,16 @@ router.get("/:id", authenticateAPIKey, async (req: Request, res: Response) => {
 
 router.get("/", authenticateAPIKey, async (req: Request, res: Response) => {
   try {
-    const burritos = findBurritos();
+    const burritos = await findBurritos();
     res.status(200).json(burritos);
   } catch (err) {
     res.status(401).json({ success: false, message: err });
   }
 });
 
-router.post("/", authenticateAPIKey, (req: Request, res: Response) => {
+router.post("/", authenticateAPIKey, async (req: Request, res: Response) => {
   try {
-    const burrito = createBurrito(req.body);
+    const burrito = await createBurrito(req.body);
     res.status(200).json(burrito);
   } catch (err) {
     res.status(401).json({ success: false, message: err });
